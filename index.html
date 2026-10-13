@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>版面对比</title>
+  <link rel="stylesheet" href="static/viewer.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>版面对比</h1>
+        <p>Dataset ↔ generated.png</p>
+      </div>
+      <div class="dataset-summary"><span>dataset</span><span id="page-count">—</span></div>
+      <nav class="page-list" id="page-list" aria-label="数据集页面"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="toolbar">
+        <div class="current">
+          <strong id="current-page">载入中…</strong>
+          <span id="current-size"></span>
+        </div>
+        <button id="previous" type="button">上一页</button>
+        <button id="next" type="button">下一页</button>
+      </header>
+
+      <section class="comparison" aria-label="原图与 HTML 渲染图对比">
+        <article class="panel">
+          <div class="panel-head"><strong>原图</strong><span id="source-label">dataset</span></div>
+          <div class="viewport" id="source-viewport">
+            <div class="scaled-shell" id="source-shell">
+              <img class="scaled-content source-image" id="source-image" alt="数据集原图">
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><strong>generated.png 文件</strong><span>直接读取磁盘图片</span></div>
+          <div class="viewport" id="render-viewport">
+            <div class="scaled-shell" id="render-shell">
+              <img class="scaled-content render-image" id="render-image" alt="HTML 渲染图">
+            </div>
+            <div class="empty" id="render-empty" hidden>当前页面还没有 generated.png</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="viewer-data.js"></script>
+  <script src="static/viewer.js"></script>
+</body>
+</html>
